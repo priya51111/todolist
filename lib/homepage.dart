@@ -10,7 +10,7 @@ const List<String> list = <String>[
   "New List"
 ];
 
-enum Menu {
+enum Menu { 
   TaskLists,
   AddINBatchMode,
   RemoveAds,
