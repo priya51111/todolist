@@ -10,7 +10,7 @@ const List<String> list = <String>[
   "New List"
 ];
 
-enum Menu { 
+enum Menu {
   TaskLists,
   AddINBatchMode,
   RemoveAds,
@@ -34,7 +34,7 @@ class _homepageState extends State<homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(135, 33, 149, 243),
+      backgroundColor: Color.fromARGB(134, 4, 83, 147),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(135, 33, 149, 243),
         foregroundColor: Colors.white,
