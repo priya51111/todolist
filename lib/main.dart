@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tolist/createtask.dart';
+import 'package:tolist/screens.dart/createtask.dart';
 import 'package:tolist/hii.dart';
-import 'package:tolist/homepage.dart';
+import 'package:tolist/screens.dart/homepage.dart';
+import 'package:tolist/screens.dart/loginpage.dart';
+import 'package:tolist/screens.dart/tasklist.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +18,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: createtask(),
+      home: homepage(),
     );
   }
 }
