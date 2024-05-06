@@ -1,76 +1,67 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
+class name extends StatefulWidget {
+  const name({super.key});
+
+  @override
+  State<name> createState() => _nameState();
 }
 
-class MyApp extends StatelessWidget {
+class _nameState extends State<name> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('TimePicker from TextField'),
-        ),
-        body: Center(
-          child: MyForm(),
-        ),
-      ),
-    );
-  }
-}
-
-class MyForm extends StatefulWidget {
-  @override
-  _MyFormState createState() => _MyFormState();
-}
-
-class _MyFormState extends State<MyForm> {
-  TimeOfDay? _selectedTime;
-
-  Future<void> _selectTime(BuildContext context) async {
-    final TimeOfDay? picked = await showTimePicker(
-      context: context,
-      initialTime: _selectedTime ?? TimeOfDay.now(),
-    );
-
-    if (picked != null && picked != _selectedTime) {
-      setState(() {
-        _selectedTime = picked;
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(20.0),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextFormField(
-              readOnly: true,
-              onTap: () {
-                _selectTime(context);
-              },
-              decoration: InputDecoration(
-                labelText: 'Select Time',
-                border: OutlineInputBorder(),
-              ),
-              controller: TextEditingController(
-                text:
-                    _selectedTime != null ? _selectedTime!.format(context) : '',
+    return Scaffold(
+      body:  Container(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 580, left: 300),
+              child: FloatingActionButton(
+                backgroundColor: Colors.white,
+                onPressed: () {
+                  // Add your onPressed functionality here
+                },
+                child: Icon(
+                  Icons.add,
+                  color: Colors.blue,
+                  size: 34,
+                ),
+                shape: CircleBorder(),
               ),
             ),
-          ),
-          IconButton(
-            icon: Icon(Icons.access_time),
-            onPressed: () {
-              _selectTime(context);
-            },
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SizedBox(
+                height: 70,
+                width: 500,
+                child: Container(
+                  color: Color.fromARGB(135, 33, 149, 243),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.mic,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Enter Quick Task Here',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
+      
     );
   }
 }
