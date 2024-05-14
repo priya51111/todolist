@@ -7,7 +7,8 @@ const List<String> list = <String>[
   'work',
   "finished",
   "default",
-  "New List"
+  "New List",
+  "Finished"
 ];
 
 enum Menu {
@@ -40,21 +41,25 @@ class _homepageState extends State<homepage> {
         foregroundColor: Colors.white,
         title: Row(
           children: [
-            Icon(Icons.done_outline_rounded, size: 45),
+            Icon(
+              Icons.check_circle,
+              size: 30,
+            ),
             SizedBox(
               width: 10,
             ),
             DropdownButton<String>(
               value: dropdownValue,
+              underline: Container(
+                color: Color.fromARGB(135, 33, 149, 243),
+              ),
               dropdownColor: Color.fromARGB(135, 33, 149, 243),
               icon: const Icon(Icons.arrow_drop_down),
-              elevation: 16,
               style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 19),
               onChanged: (String? value) {
-                
                 setState(() {
                   dropdownValue = value!;
                 });
@@ -70,9 +75,13 @@ class _homepageState extends State<homepage> {
                       if (value == 'work') Icon(Icons.menu),
                       if (value == 'finished') Icon(Icons.menu),
                       if (value == 'default') Icon(Icons.menu),
-                      if (value == 'New List') Icon(Icons.menu),
-                      SizedBox(width: 0), // Space between icon and text
-                      Text(value),
+                      if (value == 'New List') Icon(Icons.post_add_sharp),
+                      if (value == 'Finished') Icon(Icons.check_box),
+                      SizedBox(width: 10), // Space between icon and text
+                      Padding(
+                        padding: const EdgeInsets.only(left: 0, right: 30),
+                        child: Center(child: Text(value)),
+                      ),
                     ],
                   ),
                 );
@@ -87,73 +96,80 @@ class _homepageState extends State<homepage> {
                   onPressed: () {},
                   icon: Icon(
                     Icons.search,
-                    size: 34,
                     color: Colors.white,
                   )),
               PopupMenuButton<Menu>(
                 color: Colors.blue,
+                constraints: BoxConstraints.tightFor(height: 410, width: 200),
                 icon: const Icon(
                   Icons.more_vert,
-                  size: 30,
                   color: Colors.white,
                 ),
                 onSelected: (Menu item) {},
                 itemBuilder: (BuildContext context) => <PopupMenuEntry<Menu>>[
                   const PopupMenuItem<Menu>(
                     value: Menu.TaskLists,
-                    child: ListTile(
-                      title: Text('Task Lists',
-                          style: TextStyle(color: Colors.white)),
-                    ),
+                    child: Text('Task Lists',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.normal)),
                   ),
                   const PopupMenuItem<Menu>(
                     value: Menu.AddINBatchMode,
-                    child: ListTile(
-                      title: Text('Add in Batch Mode',
-                          style: TextStyle(color: Colors.white)),
-                    ),
+                    child: Text('Add in Batch Mode',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.normal)),
                   ),
                   const PopupMenuItem<Menu>(
                     value: Menu.RemoveAds,
-                    child: ListTile(
-                      title: Text('Remove Ads',
-                          style: TextStyle(color: Colors.white)),
-                    ),
+                    child: Text('Remove Ads',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.normal)),
                   ),
                   const PopupMenuItem<Menu>(
                     value: Menu.Moreapps,
-                    child: ListTile(
-                      title: Text('More Apps',
-                          style: TextStyle(color: Colors.white)),
-                    ),
+                    child: Text('More Apps',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.normal)),
                   ),
                   const PopupMenuItem<Menu>(
                     value: Menu.SendFeedback,
-                    child: ListTile(
-                      title: Text('Send Feedback',
-                          style: TextStyle(color: Colors.white)),
-                    ),
+                    child: Text('Send Feedback',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.normal)),
                   ),
                   const PopupMenuItem<Menu>(
                     value: Menu.followus,
-                    child: ListTile(
-                      title: Text('Follow us',
-                          style: TextStyle(color: Colors.white)),
-                    ),
+                    child: Text('Follow us',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.normal)),
                   ),
                   const PopupMenuItem<Menu>(
                     value: Menu.followus,
-                    child: ListTile(
-                      title: Text('Follow us',
-                          style: TextStyle(color: Colors.white)),
-                    ),
+                    child: Text('Follow us',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.normal)),
                   ),
                   const PopupMenuItem<Menu>(
                     value: Menu.setting,
-                    child: ListTile(
-                      title: Text('Settings',
-                          style: TextStyle(color: Colors.white)),
-                    ),
+                    child: Text('Settings',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.normal)),
                   ),
                 ],
               ),
@@ -165,7 +181,7 @@ class _homepageState extends State<homepage> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 580, left: 300),
+              padding: const EdgeInsets.only(top: 555, left: 300),
               child: FloatingActionButton(
                 backgroundColor: Colors.white,
                 onPressed: () {
@@ -179,35 +195,32 @@ class _homepageState extends State<homepage> {
                 shape: CircleBorder(),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: SizedBox(
-                height: 70,
-                width: 500,
-                child: Container(
-                  color: Color.fromARGB(135, 33, 149, 243),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.mic,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Enter Quick Task Here',
-                          ),
+            SizedBox(
+              height: 70,
+              width: 500,
+              child: Container(
+                color: Color.fromARGB(135, 33, 149, 243),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.mic,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Enter Quick Task Here',
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
