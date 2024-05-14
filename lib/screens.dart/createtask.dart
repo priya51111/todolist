@@ -8,8 +8,20 @@ class createtask extends StatefulWidget {
   State<createtask> createState() => _createtaskState();
 }
 
-TimeOfDay selectedTime = TimeOfDay.now();
+const List<String> list = <String>[
+  'No repeat',
+  'Once a day',
+  'Once a day (mon-fri)',
+  "Once a week",
+  "Once a Month",
+  "Once a year",
+  "Other.."
+];
+const List<String> task = <String>["default", "personal", "Shopping", "work"];
+String dropdownValue = list.first;
+String downValue = task.first;
 
+TimeOfDay selectedTime = TimeOfDay.now();
 
 TextEditingController dateInput = TextEditingController();
 
@@ -42,13 +54,17 @@ class _createtaskState extends State<createtask> {
               height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 220),
-              child: Text(
-                "What is to be done?",
-                style: TextStyle(
-                    color: Color.fromARGB(135, 33, 149, 243),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  Text(
+                    "What is to be done?",
+                    style: TextStyle(
+                        color: Color.fromARGB(135, 33, 149, 243),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                ],
               ),
             ),
             ListTile(
@@ -74,13 +90,17 @@ class _createtaskState extends State<createtask> {
               height: 30,
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 300),
-              child: Text(
-                "Due date",
-                style: TextStyle(
-                    color: Color.fromARGB(135, 33, 149, 243),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  Text(
+                    "Due date",
+                    style: TextStyle(
+                        color: Color.fromARGB(135, 33, 149, 243),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                ],
               ),
             ),
             ListTile(
@@ -145,28 +165,139 @@ class _createtaskState extends State<createtask> {
                 color: Colors.white,
               ),
             ),
-             TextField(
-              
-              
-                onTap: () async {
-                  final TimeOfDay? pickedTime = await showTimePicker(
-                      context: context,
-                      initialTime: selectedTime,
-                      builder: (BuildContext context, Widget? child) {
-                        return MediaQuery(
-                          data: MediaQuery.of(context)
-                              .copyWith(alwaysUse24HourFormat: false),
-                          child: child!,
-                        );
-                      });
-
-                  if (pickedTime != null && pickedTime != selectedTime)
-                    setState(() {
-                      selectedTime = pickedTime;
+            TextField(
+              onTap: () async {
+                final TimeOfDay? pickedTime = await showTimePicker(
+                    context: context,
+                    initialTime: selectedTime,
+                    builder: (BuildContext context, Widget? child) {
+                      return MediaQuery(
+                        data: MediaQuery.of(context)
+                            .copyWith(alwaysUse24HourFormat: false),
+                        child: child!,
+                      );
                     });
-                },
+
+                if (pickedTime != null && pickedTime != selectedTime)
+                  setState(() {
+                    selectedTime = pickedTime;
+                  });
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  Text(
+                    "Repeat",
+                    style: TextStyle(
+                        color: Color.fromARGB(135, 33, 149, 243),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  )
+                ],
               ),
-            
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  DropdownButton<String>(
+                    value: dropdownValue,
+                    underline: Container(
+                      color: Color.fromARGB(135, 33, 149, 243),
+                    ),
+                    dropdownColor: Color.fromARGB(135, 33, 149, 243),
+                    icon: const Icon(Icons.arrow_drop_down),
+                    style: const TextStyle(color: Colors.white, fontSize: 19),
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropdownValue = value!;
+                      });
+                    },
+                    items: list.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 0, right: 30),
+                              child: Center(child: Text(value)),
+                            ),
+                          ],
+                        ),
+                      );
+                    }).toList(),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  Text(
+                    "Add to List",
+                    style: TextStyle(
+                        color: Color.fromARGB(135, 33, 149, 243),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  DropdownButton<String>(
+                    value: downValue,
+                    underline: Container(
+                      color: Color.fromARGB(135, 33, 149, 243),
+                    ),
+                    dropdownColor: Color.fromARGB(135, 33, 149, 243),
+                    icon: const Icon(Icons.arrow_drop_down),
+                    style: const TextStyle(color: Colors.white, fontSize: 19),
+                    onChanged: (String? value) {
+                      setState(() {
+                        downValue = value!;
+                      });
+                    },
+                    items: task.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 0, right: 170),
+                              child: Center(child: Text(value)),
+                            ),
+                          ],
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                  SizedBox(
+                    width: 25,
+                  ),
+                  Icon(
+                    Icons.post_add_sharp,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

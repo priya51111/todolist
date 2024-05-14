@@ -20,6 +20,7 @@ dependencies:
   custom_calender_picker: ^0.1.1
   intl: ^0.18.1
   dropdown_button2: ^2.3.9
+  circular_countdown_timer: ^0.2.3
 
 dev_dependencies:
   flutter_test:
