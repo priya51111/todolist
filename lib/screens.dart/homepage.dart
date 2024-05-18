@@ -51,10 +51,13 @@ class _homepageState extends State<homepage> {
             DropdownButton<String>(
               value: dropdownValue,
               underline: Container(
-                color: Color.fromARGB(135, 33, 149, 243),
+                color: Color.fromARGB(134, 4, 83, 147),
               ),
-              dropdownColor: Color.fromARGB(135, 33, 149, 243),
-              icon: const Icon(Icons.arrow_drop_down),
+              dropdownColor: Color.fromARGB(134, 4, 83, 147),
+              icon: const Icon(
+                Icons.arrow_drop_down,
+                color: Colors.white,
+              ),
               style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -69,17 +72,8 @@ class _homepageState extends State<homepage> {
                   value: value,
                   child: Row(
                     children: <Widget>[
-                      if (value == 'All List') Icon(Icons.home),
-                      if (value == 'Personal') Icon(Icons.menu),
-                      if (value == 'Shopping') Icon(Icons.menu),
-                      if (value == 'work') Icon(Icons.menu),
-                      if (value == 'finished') Icon(Icons.menu),
-                      if (value == 'default') Icon(Icons.menu),
-                      if (value == 'New List') Icon(Icons.post_add_sharp),
-                      if (value == 'Finished') Icon(Icons.check_box),
-                      SizedBox(width: 10), // Space between icon and text
                       Padding(
-                        padding: const EdgeInsets.only(left: 0, right: 30),
+                        padding: const EdgeInsets.only(left: 0, right: 60),
                         child: Center(child: Text(value)),
                       ),
                     ],
@@ -99,7 +93,8 @@ class _homepageState extends State<homepage> {
                     color: Colors.white,
                   )),
               PopupMenuButton<Menu>(
-                color: Colors.blue,
+                elevation: 0,
+                color: Color.fromARGB(135, 33, 149, 243),
                 constraints: BoxConstraints.tightFor(height: 410, width: 200),
                 icon: const Icon(
                   Icons.more_vert,
@@ -178,48 +173,53 @@ class _homepageState extends State<homepage> {
         ],
       ),
       body: Container(
-        child: Column(
+        child: Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 555, left: 300),
-              child: FloatingActionButton(
-                backgroundColor: Colors.white,
-                onPressed: () {
-                  // Add your onPressed functionality here
-                },
-                child: Icon(
-                  Icons.add,
-                  color: Colors.blue,
-                  size: 34,
+            Column(
+              children: [
+                Image.asset("assets/trees.png"),
+                Padding(
+                  padding: const EdgeInsets.only(left: 300),
+                  child: FloatingActionButton(
+                    backgroundColor: Colors.white,
+                    onPressed: () {
+                      // Add your onPressed functionality here
+                    },
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.blue,
+                      size: 34,
+                    ),
+                    shape: CircleBorder(),
+                  ),
                 ),
-                shape: CircleBorder(),
-              ),
-            ),
-            SizedBox(
-              height: 70,
-              width: 500,
-              child: Container(
-                color: Color.fromARGB(135, 33, 149, 243),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.mic,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Enter Quick Task Here',
+                SizedBox(
+                  height: 70,
+                  width: 500,
+                  child: Container(
+                    color: Color.fromARGB(135, 33, 149, 243),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.mic,
+                          color: Colors.white,
+                          size: 30,
                         ),
-                      ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Enter Quick Task Here',
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),

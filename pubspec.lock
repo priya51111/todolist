@@ -94,6 +94,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_datetime_picker:
+    dependency: "direct main"
+    description:
+      name: flutter_datetime_picker
+      sha256: "8e695c63c769350e541951227c2775190ec73ceda774a315b1dc9a99d5facfe5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.5.1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -155,6 +163,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.3"
+  reactive_date_time_picker:
+    dependency: "direct main"
+    description:
+      name: reactive_date_time_picker
+      sha256: "0dc34eb7338c2e4d2cb16bbc9f60ab8b2dc015d3a07ac9a6e912ae51cb51b2d5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.1"
+  reactive_forms:
+    dependency: transitive
+    description:
+      name: reactive_forms
+      sha256: b7d64d8fe45c19f506c762e219f4c6a3bdcfc4842d6fba98f866be5fca75d8e5
+      url: "https://pub.dev"
+    source: hosted
+    version: "16.1.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -226,4 +250,4 @@ packages:
     version: "0.1.4-beta"
 sdks:
   dart: ">=3.1.0 <4.0.0"
-  flutter: ">=3.0.0"
+  flutter: ">=3.10.0"

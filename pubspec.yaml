@@ -21,6 +21,8 @@ dependencies:
   intl: ^0.18.1
   dropdown_button2: ^2.3.9
   circular_countdown_timer: ^0.2.3
+  reactive_date_time_picker: ^3.0.1
+  flutter_datetime_picker: ^1.5.1
 
 dev_dependencies:
   flutter_test:

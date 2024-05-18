@@ -20,7 +20,7 @@ const List<String> list = <String>[
 const List<String> task = <String>["default", "personal", "Shopping", "work"];
 String dropdownValue = list.first;
 String downValue = task.first;
-
+TimeOfDay _selectedTime = TimeOfDay.now();
 TimeOfDay selectedTime = TimeOfDay.now();
 
 TextEditingController dateInput = TextEditingController();
@@ -68,10 +68,6 @@ class _createtaskState extends State<createtask> {
               ),
             ),
             ListTile(
-              trailing: Icon(
-                Icons.mic,
-                color: Colors.white,
-              ),
               title: TextField(
                 cursorColor: Colors.white,
                 decoration: InputDecoration(
@@ -85,9 +81,10 @@ class _createtaskState extends State<createtask> {
                   hintStyle: TextStyle(color: Colors.white),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 30,
+              trailing: Icon(
+                Icons.mic,
+                color: Colors.white,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20),

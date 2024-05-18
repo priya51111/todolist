@@ -5,6 +5,7 @@ import 'package:tolist/hii.dart';
 import 'package:tolist/screens.dart/demo.dart';
 import 'package:tolist/screens.dart/homepage.dart';
 import 'package:tolist/screens.dart/loginpage.dart';
+import 'package:tolist/screens.dart/newdemo.dart';
 import 'package:tolist/screens.dart/settings.dart';
 import 'package:tolist/screens.dart/tasklist.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home:  homepage(),
+      home: MyHmePage(),
     );
   }
 }
