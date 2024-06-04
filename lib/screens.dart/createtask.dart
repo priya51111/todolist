@@ -145,16 +145,16 @@ class _createtaskState extends State<createtask> {
 
                   if (pickedDate != null) {
                     print(
-                        pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                        pickedDate);
                     String formattedDate =
                         DateFormat('yyyy-MM-dd').format(pickedDate);
                     print(
-                        formattedDate); //formatted date output using intl package =>  2021-03-16
+                        formattedDate); 
                     setState(() {
                       dateInput.text =
-                          formattedDate; //set output date to TextField value.
+                          formattedDate;
                     });
-                  } else {}
+                  } else {} 
                 },
               ),
               trailing: Icon(
