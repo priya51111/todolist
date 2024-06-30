@@ -20,10 +20,8 @@ const List<String> list = <String>[
 const List<String> task = <String>["default", "personal", "Shopping", "work"];
 String dropdownValue = list.first;
 String downValue = task.first;
-TimeOfDay _selectedTime = TimeOfDay.now();
-TimeOfDay selectedTime = TimeOfDay.now();
-
-TextEditingController dateInput = TextEditingController();
+TextEditingController _dateController = TextEditingController();
+TextEditingController _timeController = TextEditingController();
 
 class _createtaskState extends State<createtask> {
   @override
@@ -69,6 +67,7 @@ class _createtaskState extends State<createtask> {
             ),
             ListTile(
               title: TextField(
+                style: TextStyle(color: Colors.white),
                 cursorColor: Colors.white,
                 decoration: InputDecoration(
                   enabledBorder: UnderlineInputBorder(
@@ -102,9 +101,10 @@ class _createtaskState extends State<createtask> {
             ),
             ListTile(
               title: TextField(
-                controller: dateInput,
-                //editing controller of this TextField
+                style: TextStyle(color: Colors.white),
+                controller: _dateController,
                 decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.av_timer_outlined),
                     enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.white)),
                     focusedBorder: UnderlineInputBorder(
@@ -116,14 +116,12 @@ class _createtaskState extends State<createtask> {
                         TextStyle(color: Colors.white) //label text of field
                     ),
                 readOnly: true,
-                //set it true, so that user will not able to edit text
                 onTap: () async {
                   DateTime? pickedDate = await showDatePicker(
                     context: context,
                     initialDate: DateTime.now(),
-                    firstDate: DateTime(1950),
-                    //DateTime.now() - not to allow to choose before today.
-                    lastDate: DateTime(2100),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2101),
                     builder: (BuildContext context, Widget? child) {
                       return Theme(
                         data: ThemeData.light().copyWith(
@@ -144,42 +142,62 @@ class _createtaskState extends State<createtask> {
                   );
 
                   if (pickedDate != null) {
-                    print(
-                        pickedDate);
-                    String formattedDate =
-                        DateFormat('yyyy-MM-dd').format(pickedDate);
-                    print(
-                        formattedDate); 
                     setState(() {
-                      dateInput.text =
-                          formattedDate;
+                      _dateController.text =
+                          "${pickedDate.day}/${pickedDate.month}/${pickedDate.year}";
                     });
-                  } else {} 
+                  }
                 },
               ),
-              trailing: Icon(
-                Icons.calendar_today,
-                color: Colors.white,
-              ),
             ),
-            TextField(
-              onTap: () async {
-                final TimeOfDay? pickedTime = await showTimePicker(
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: TextField(
+                style: TextStyle(color: Colors.white),
+                controller: _timeController,
+                decoration: InputDecoration(
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white)),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  hintText: "Time no set (all day)",
+                  hintStyle: TextStyle(color: Colors.white),
+                  suffixIcon: Icon(Icons.access_time),
+                ),
+                readOnly: true,
+                onTap: () async {
+                  TimeOfDay? pickedTime = await showTimePicker(
                     context: context,
-                    initialTime: selectedTime,
+                    initialTime: TimeOfDay.now(),
                     builder: (BuildContext context, Widget? child) {
-                      return MediaQuery(
-                        data: MediaQuery.of(context)
-                            .copyWith(alwaysUse24HourFormat: false),
+                      return Theme(
+                        data: ThemeData.light().copyWith(
+                          primaryColor: Colors.blue.shade900,
+                          dialogBackgroundColor: Colors.white,
+                          colorScheme: ColorScheme.light(
+                            primary: Colors.blue.shade900, // Header text color
+                            onPrimary: Colors.white, // Header text color
+                            surface: Colors.white, // Background color
+                            onSurface: Colors.black, // Text color
+                          ).copyWith(
+                            secondary: Colors.indigo.shade800,
+                          ), // Dialog background color
+                        ),
                         child: child!,
                       );
+                    },
+                  );
+                  if (pickedTime != null) {
+                    setState(() {
+                      _timeController.text = pickedTime.format(context);
                     });
-
-                if (pickedTime != null && pickedTime != selectedTime)
-                  setState(() {
-                    selectedTime = pickedTime;
-                  });
-              },
+                  }
+                },
+              ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20),

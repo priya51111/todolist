@@ -173,53 +173,26 @@ class _homepageState extends State<homepage> {
         ],
       ),
       body: Container(
-        child: Stack(
+        child: Column(
           children: [
-            Column(
-              children: [
-                Image.asset("assets/trees.png"),
-                Padding(
-                  padding: const EdgeInsets.only(left: 300),
-                  child: FloatingActionButton(
-                    backgroundColor: Colors.white,
-                    onPressed: () {
-                      // Add your onPressed functionality here
-                    },
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.blue,
-                      size: 34,
-                    ),
-                    shape: CircleBorder(),
-                  ),
+            Padding(
+              padding: const EdgeInsets.only(top: 120, left: 15),
+              child: Image.asset("assets/blue.png"),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 280, left: 300),
+              child: FloatingActionButton(
+                backgroundColor: Colors.white,
+                onPressed: () {
+                  // Add your onPressed functionality here
+                },
+                child: Icon(
+                  Icons.add,
+                  color: Colors.blue,
+                  size: 34,
                 ),
-                SizedBox(
-                  height: 70,
-                  width: 500,
-                  child: Container(
-                    color: Color.fromARGB(135, 33, 149, 243),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.mic,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Enter Quick Task Here',
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+                shape: CircleBorder(),
+              ),
             ),
           ],
         ),
