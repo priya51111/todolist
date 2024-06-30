@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:tolist/api_configs.dart';
-import 'package:tolist/model/createtask.dart';
-import 'package:tolist/screens.dart/createtask.dart';
+import 'package:tolist/model/createmenu.dart';
 
-class CreateTaskController extends GetxController {
-  Task? task;
+
+class CreateMenuController extends GetxController {
+  Menu? menu;
   final Dio dio = Dio();
   bool isloading = true;
-  Future<void>   getCreateTask() async {
+  Future<void>   getCreatemenu() async {
     try{
-      await dio.post(createTaskUrl).then((response){
+      await dio.post(createMenuUrl).then((response){
         if(response.statusCode ==200) {
-          task = Task.fromJson(response.data);
+          menu= Menu.fromJson(response.data);
           isloading = false;
           update();
         }
@@ -30,12 +30,12 @@ class CreateTaskController extends GetxController {
     }
   } 
 
- static Future<void> deletetask(String userId) async {
+ static Future<void> deletemenu(String userId) async {
     try {
       print(userId);
       final dio = Dio();
       await dio
-          .delete(deleteTaskUrl + userId,
+          .delete(deleteMenuUrl + userId,
               )
           .then((response) {
         if (response.statusCode == 200) {
@@ -51,11 +51,11 @@ class CreateTaskController extends GetxController {
     }
   }
 
-  Future<void> updatetask(String userId,String date) async {
+  Future<void> updatemenu(String userId,String date) async {
     try {
       final dio = Dio();
       await dio
-          .patch(updateTaskUrl+ userId +date
+          .patch(updateMenuUrl+ userId +date
               )
           .then((response) {
         if (response.statusCode == 200) {
@@ -63,8 +63,7 @@ class CreateTaskController extends GetxController {
               backgroundColor: Colors.green,
               colorText: Colors.black,
               snackPosition: SnackPosition.BOTTOM);
-          // update();
-          Get.offAll(const createtask ());
+         
         }
       });
     } on DioException catch (e) {
@@ -74,12 +73,12 @@ class CreateTaskController extends GetxController {
       } else {}
     }
   }
-  static Future<void> getbyid(String userId) async {
+  static Future<void> getbyidmenu(String userId) async {
     try {
       print(userId);
       final dio = Dio();
       await dio
-          .get(getbyidTaskUrl + userId,
+          .get(getbyidMenuUrl + userId,
               )
           .then((response) {
         if (response.statusCode == 200) {
