@@ -62,6 +62,7 @@ class _batchState extends State<batch> {
             SizedBox(
               width: 380,
               child: TextFormField(
+                style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                     focusColor: Color.fromARGB(135, 33, 149, 243),
                     fillColor: Color.fromARGB(135, 33, 149, 243),
@@ -83,6 +84,7 @@ class _batchState extends State<batch> {
             SizedBox(
               width: 380,
               child: TextField(
+                style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                     focusColor: Color.fromARGB(233, 116, 200, 245),
                     fillColor: Color.fromARGB(233, 116, 200, 245),

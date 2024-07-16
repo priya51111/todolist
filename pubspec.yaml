@@ -31,7 +31,7 @@ dependencies:
   flutter_timezone: ^1.0.8
   http: ^1.1.0
   image: ^4.2.0
-  android_alarm_manager_plus: ^4.0.3
+  
 
 dev_dependencies:
   flutter_test:
