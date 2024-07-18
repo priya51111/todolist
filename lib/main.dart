@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+=======
 import 'package:tolist/screens.dart/batchmode.dart';
 import 'package:tolist/screens.dart/createtask.dart';
 import 'package:tolist/hii.dart';
@@ -6,10 +8,9 @@ import 'package:tolist/screens.dart/demo.dart';
 
 import 'package:tolist/screens.dart/homepage.dart';
 import 'package:tolist/screens.dart/loginpage.dart';
+>>>>>>> 3ffbcc1fff7786583192706c053561d2f666a16b
 import 'package:tolist/screens.dart/loginscreen.dart';
-import 'package:tolist/screens.dart/newdemo.dart';
-import 'package:tolist/screens.dart/settings.dart';
-import 'package:tolist/screens.dart/tasklist.dart';
+
 
 void main() {
   runApp(const MyApp());
