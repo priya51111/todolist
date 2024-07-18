@@ -9,14 +9,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.6.1"
-  args:
-    dependency: transitive
-    description:
-      name: args
-      sha256: "7cf60b9f0cc88203c5a190b4cd62a99feea42759a7fa695010eb5de1c0b2252a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.5.0"
   async:
     dependency: transitive
     description:
@@ -97,14 +89,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.1"
-  dbus:
-    dependency: transitive
-    description:
-      name: dbus
-      sha256: "365c771ac3b0e58845f39ec6deebc76e3276aa9922b0cc60840712094d9047ac"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.7.10"
   device_info_plus:
     dependency: "direct main"
     description:
@@ -166,14 +150,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_datetime_picker:
-    dependency: "direct main"
-    description:
-      name: flutter_datetime_picker
-      sha256: "8e695c63c769350e541951227c2775190ec73ceda774a315b1dc9a99d5facfe5"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.5.1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -182,43 +158,11 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
-  flutter_local_notifications:
-    dependency: "direct main"
-    description:
-      name: flutter_local_notifications
-      sha256: ca682770957ca40a1c2dd3ada500254337248b99d8027a8ad7dce9a4064bb18f
-      url: "https://pub.dev"
-    source: hosted
-    version: "17.2.0"
-  flutter_local_notifications_linux:
-    dependency: transitive
-    description:
-      name: flutter_local_notifications_linux
-      sha256: "33f741ef47b5f63cc7f78fe75eeeac7e19f171ff3c3df054d84c1e38bedb6a03"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.0+1"
-  flutter_local_notifications_platform_interface:
-    dependency: transitive
-    description:
-      name: flutter_local_notifications_platform_interface
-      sha256: "85f8d07fe708c1bdcf45037f2c0109753b26ae077e9d9e899d55971711a4ea66"
-      url: "https://pub.dev"
-    source: hosted
-    version: "7.2.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_timezone:
-    dependency: "direct main"
-    description:
-      name: flutter_timezone
-      sha256: "06b35132c98fa188db3c4b654b7e1af7ccd01dfe12a004d58be423357605fb24"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.8"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -272,14 +216,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.18.1"
-  js:
-    dependency: transitive
-    description:
-      name: js
-      sha256: c1b2e9b5ea78c45e1a0788d29606ba27dc5f71f019f32ca5140f61ef071838cf
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.7.1"
   lints:
     dependency: transitive
     description:
@@ -392,22 +328,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
-  reactive_date_time_picker:
-    dependency: "direct main"
-    description:
-      name: reactive_date_time_picker
-      sha256: "0dc34eb7338c2e4d2cb16bbc9f60ab8b2dc015d3a07ac9a6e912ae51cb51b2d5"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
-  reactive_forms:
-    dependency: transitive
-    description:
-      name: reactive_forms
-      sha256: b7d64d8fe45c19f506c762e219f4c6a3bdcfc4842d6fba98f866be5fca75d8e5
-      url: "https://pub.dev"
-    source: hosted
-    version: "16.1.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -461,14 +381,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.0"
-  timezone:
-    dependency: transitive
-    description:
-      name: timezone
-      sha256: a6ccda4a69a442098b602c44e61a1e2b4bf6f5516e875bbf0f427d5df14745d5
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.9.3"
   typed_data:
     dependency: transitive
     description:
