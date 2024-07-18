@@ -1,20 +1,20 @@
 
 import 'dart:convert';
 
-BookModel bookModelFromJson(String str) => BookModel.fromJson(json.decode(str));
+UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 
-String bookModelToJson(BookModel data) => json.encode(data.toJson());
+String bookModelToJson(UserModel data) => json.encode(data.toJson());
 
-class BookModel {
+class UserModel {
     String? status;
     Data? data;
 
-    BookModel({
+    UserModel({
         this.status,
         this.data,
     });
 
-    factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
+    factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
         status: json["status"],
         data: json["data"] == null ? null : Data.fromJson(json["data"]),
     );
